@@ -57,7 +57,7 @@ public class DesignProjectOne {
   //VARIABLES
     int totalStudents,arduinoStudens,vrStudens,raspberryPiStudens;
     
-    double totalFixedCost,totalCost,vrCost,arduinoCost,raspberryPiCost;
+    double totalFixedCost,totalCost,vrCost,arduinoCost,raspberryPiCost,eachStudentCost;
        
 
   //CODE
@@ -84,8 +84,24 @@ public class DesignProjectOne {
         arduinoCost = arduinoStudens*ARDUINO_COST_ABOVE_15;
         
     }else{
+        arduinoCost = arduinoStudens*ARDUINO_COST_UP_TO_15;
         
     }
+    if (raspberryPiStudens > 20){
+        raspberryPiCost = raspberryPiStudens*RASPBERRY_PI_COST_ABOVE_20;
+        
+    }else{
+        raspberryPiCost = raspberryPiStudens*RASPBERRY_PI_COST_UP_TO_20;
+        
+    }
+    vrCost = vrStudens*VR_PROJECT_COST;
+    
+    totalCost = totalFixedCost + vrCost + arduinoCost + raspberryPiCost;
+    eachStudentCost = totalCost/(double)totalStudents;
+    
+    System.out.println("price per student is $"+eachStudentCost);
+    
+    
     
     
     }
